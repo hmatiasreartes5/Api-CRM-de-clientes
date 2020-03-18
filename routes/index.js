@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const clienteController = require('../controllers/clienteController');
 const productoController = require('../controllers/productoController');
+const pedidoController = require('../controllers/pedidoController');
 
 module.exports = function() {
     
@@ -41,6 +42,24 @@ module.exports = function() {
 
     //Elimina un producto
     router.delete('/productos/:idProducto',productoController.eliminarProducto);
+
+
+    /** PEDIDOS **/
+    //Agregar un pedido
+    router.post('/pedidos',pedidoController.agregarPedido);
+
+    //Mostrar todos los pedidos  
+    router.get('/pedidos',pedidoController.mostrarPedidos);
+
+    //Mostrar un pedido
+    router.get('/pedidos/:idPedido',pedidoController.mostrarPedido);
+
+    //Actualizar un pedido 
+    router.put('/pedidos/:idPedido',pedidoController.actualizarPedido);
+
+    //Eliminar un pedido
+    router.delete('/pedidos/:idPedido',pedidoController.eliminarPedido);
+
 
     return router
 }
