@@ -20,6 +20,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 //habilitar el cors para poder recibir consultas desde el cliente
 app.use(cors())
 
+//habilitar una carpeta publica //para poder visualizar las imaganes en el cliente
+app.use(express.static('uploads'))
+
 //Rutas de la app
 app.use('/',routes())
 
