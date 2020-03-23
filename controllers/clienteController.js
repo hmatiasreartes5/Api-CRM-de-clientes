@@ -9,7 +9,7 @@ exports.nuevoCliente = async ( req,res,next) => {
         await cliente.save();
         res.json({mensaje: 'Se agrego un cliente correctamente'});
     } catch (error) {
-        console.log(error);
+        res.send(error);
         next() //se va al siguiente middleware evita que a la app se detenga
     }
 }

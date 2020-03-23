@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 //Creando el servidor 
 const app = express();
@@ -15,6 +16,9 @@ mongoose.connect('mongodb://localhost/apiCRMclientes',{
 //habilitar body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+
+//habilitar el cors para poder recibir consultas desde el cliente
+app.use(cors())
 
 //Rutas de la app
 app.use('/',routes())
